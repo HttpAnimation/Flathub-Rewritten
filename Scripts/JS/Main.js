@@ -11,36 +11,45 @@ async function fetchData() {
 async function generateFlatpakCards() {
     const container = document.getElementById('content');
 
-    const jsonData = await fetchData();
+    try {
+        const jsonData = await fetchData();
 
-    jsonData.forEach(entry => {
-        const flatpakData = entry.Flatpak;
-
-        for (const appName in flatpakData) {
-            const appData = flatpakData[appName];
-            const card = document.createElement('div');
-            card.classList.add('flatpak-card');
-
-            card.innerHTML = `
-                <div class="icon-title">
-                    <img src="${appData['Icon']}" alt="${appName} Icon">
-                    <h2>${appName}</h2>
-                </div>
-                <img src="${appData['Main-Photo']}" alt="${appName} Image">
-                <p>${appData.Description}</p>
-                <p><strong>Publisher:</strong> ${appData.Publisher}</p>
-                <p>
-                    <strong>Install Command:</strong> <br> 
-                    <code class="install-command" onclick="copyToClipboard(this)">${appData['Install command']}</code><br>
-                    <strong>Run Command:</strong> <br> 
-                    <code class="run-command" onclick="copyToClipboard(this)">${appData['Run command']}</code>
-                </p>
-                <a href="${appData.Source}" target="_blank">View on Flathub</a>
-            `;
-
-            container.appendChild(card);
+        if (!jsonData) {
+            console.error('Error: JSON data is undefined.');
+            return;
         }
-    });
+
+        jsonData.forEach(entry => {
+            const flatpakData = entry.Flatpak;
+
+            for (const appName in flatpakData) {
+                const appData = flatpakData[appName];
+                const card = document.createElement('div');
+                card.classList.add('flatpak-card');
+
+                card.innerHTML = `
+                    <div class="icon-title">
+                        <img src="${appData['Icon']}" alt="${appName} Icon">
+                        <h2>${appName}</h2>
+                    </div>
+                    <img src="${appData['Main-Photo']}" alt="${appName} Image">
+                    <p>${appData.Description}</p>
+                    <p><strong>Publisher:</strong> ${appData.Publisher}</p>
+                    <p>
+                        <strong>Install Command:</strong> <br> 
+                        <code class="install-command" onclick="copyToClipboard(this)">${appData['Install command']}</code><br>
+                        <strong>Run Command:</strong> <br> 
+                        <code class="run-command" onclick="copyToClipboard(this)">${appData['Run command']}</code>
+                    </p>
+                    <a href="${appData.Source}" target="_blank">View on Flathub</a>
+                `;
+
+                container.appendChild(card);
+            }
+        });
+    } catch (error) {
+        console.error('Error generating flatpak cards:', error);
+    }
 }
 
 function copyToClipboard(element) {
