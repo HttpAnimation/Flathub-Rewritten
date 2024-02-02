@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+#sidebar {
+    width: 250px;
+    background-color: #222;
+    padding: 16px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+    z-index: 1;
+}
+
+#content {
+    flex-grow: 1;
+    padding: 16px;
+}
+
+.flatpak-card {
+    border: 1px solid #555;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    background-color: #444;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.icon-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.icon-title img {
+    margin-right: 8px;
+}
+
+code {
+    background-color: #555;
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+#toggleSidebarBtn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#sidebarBtns button {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+#sidebarBtns button:hover {
+    background-color: #777;
+    transform: scale(1.05);
+}
