@@ -18,16 +18,19 @@ body {
 
 #content {
     flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 16px; 
     padding: 16px;
 }
 
 .flatpak-card {
+    flex: 0 0 calc(33.33% - 16px); 
     border: 1px solid #555;
     padding: 16px;
-    margin: 16px;
+    margin: 0 0 16px 0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
     background-color: #444;
 }
 
