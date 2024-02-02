@@ -11,6 +11,16 @@
                 "Description": "A Launcher for Roblox Player and Roblox Studio | Grapejuice is a launcher for the popular Roblox platform. It enables users to create, play, and socialize on the Roblox platform.",
                 "Icon": "https://dl.flathub.org/repo/appstream/x86_64/icons/128x128/net.brinkervii.grapejuice.png",
                 "Source": "https://flathub.org/apps/net.brinkervii.grapejuice"
+            },
+            "Minecraft Bedrock Launcher": {
+                "Flatpak name": "Minecraft Bedrock Launcher",
+                "Install command": "flatpak install flathub io.mrarm.mcpelauncher",
+                "Run command": "flatpak run io.mrarm.mcpelauncher",
+                "Publisher": "minecraft-linux",
+                "Main-Photo": "https://dl.flathub.org/repo/screenshots/io.mrarm.mcpelauncher-stable/1248x702/io.mrarm.mcpelauncher-c340fd8e19319f8da7973305d58361d1.png",
+                "Description": "Download and play Minecraft Bedrock Edition on GNU/LinuxTo use this launcher you have to own Minecraft: Bedrock Edition on google play store, you may be unable to play the latest update of the Game. Otherwise you will get an license error while launching the google play apk.For sound you will have to install pulseaudio on your host system, otherwise the game will be silent on arm based systems.The project runs the native libraries from the Android version directly on your computer. This is accomplished by fixing the incompatibilities between the libc used on Android and the one used on desktop Linux or OS X (Android - Bionic; Linux - glibc). This is a simple compatibility layer which doesn’t impact performance in any significant way; it’s similar to Wine, but much more lightweight and simple. Aditionally, all Android-specific code has been rewritten to run on Linux (AppPlatform, Store, Xbox Live, etc.).This is an unofficial Linux launcher for the Minecraft Bedrock codebase. This project is not affiliated with Minecraft, Mojang or Microsoft.",
+                "Icon": "https://dl.flathub.org/repo/appstream/x86_64/icons/128x128/io.mrarm.mcpelauncher.png",
+                "Source": "https://flathub.org/apps/io.mrarm.mcpelauncher"
             }
         }
     }
