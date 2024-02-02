@@ -1,0 +1,11 @@
+,
+            "Name": {
+                "Flatpak name": "Name",
+                "Install command": "InstallCommand",
+                "Run command": "RunCommand",
+                "Publisher": "Dev",
+                "Main-Photo": "Photo",
+                "Description": "Description",
+                "Icon": "Icon",
+                "Source": "WhereItCameFrom"
+            }
