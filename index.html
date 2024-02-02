@@ -25,38 +25,22 @@
 <body>
 
 <script>
-    const jsonData = [
-        {
-            "Name": "HttpAnimations",
-            "Flatpak": {
-                "App1": {
-                    "Flatpak name": "App1",
-                    "Install command": "flatpak install flathub app1",
-                    "Run command": "flatpak run app1",
-                    "Publisher": "Publisher 1",
-                    "Main-Photo": "https://example.com/app1.png",
-                    "Description": "Description of App1",
-                    "Icon": "https://example.com/app1-icon.png",
-                    "Source": "https://flathub.org/apps/app1"
-                },
-                "App2": {
-                    "Flatpak name": "App2",
-                    "Install command": "flatpak install flathub app2",
-                    "Run command": "flatpak run app2",
-                    "Publisher": "Publisher 2",
-                    "Main-Photo": "https://example.com/app2.png",
-                    "Description": "Description of App2",
-                    "Icon": "https://example.com/app2-icon.png",
-                    "Source": "https://flathub.org/apps/app2"
-                }
-            }
+    async function fetchData() {
+        try {
+            const response = await fetch('https://raw.githubusercontent.com/HttpAnimation/Flathub-Rewritten/repo/Repo.json');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
-    ];
+    }
 
-    function generateFlatpakCards(data) {
+    async function generateFlatpakCards() {
         const container = document.body;
 
-        data.forEach(entry => {
+        const jsonData = await fetchData();
+
+        jsonData.forEach(entry => {
             const flatpakData = entry.Flatpak;
 
             for (const appName in flatpakData) {
@@ -81,7 +65,7 @@
         });
     }
 
-    generateFlatpakCards(jsonData);
+    generateFlatpakCards();
 </script>
 
 </body>
