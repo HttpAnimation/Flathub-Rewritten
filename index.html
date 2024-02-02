@@ -36,6 +36,13 @@
         .icon-title img {
             margin-right: 8px;
         }
+
+        code {
+            background-color: #555;
+            color: #fff;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -73,8 +80,8 @@
                     <p>${appData.Description}</p>
                     <p><strong>Publisher:</strong> ${appData.Publisher}</p>
                     <p>
-                        <strong>Install Command:</strong> ${appData['Install command']}<br>
-                        <strong>Run Command:</strong> ${appData['Run command']}
+                        <strong>Install Command:</strong> <code>${appData['Install command']}</code><br>
+                        <strong>Run Command:</strong> <code>${appData['Run command']}</code>
                     </p>
                     <a href="${appData.Source}" target="_blank">View on Flathub</a>
                 `;
