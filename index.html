@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flatpak Apps</title>
+    <style>
+        .flatpak-card {
+            border: 1px solid #ddd;
+            padding: 16px;
+            margin: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // Sample JSON data
+    const jsonData = [
+        {
+            "Name": "HttpAnimations",
+            "Flatpak": {
+                "App1": {
+                    "Flatpak name": "App1",
+                    "Install command": "flatpak install flathub app1",
+                    "Run command": "flatpak run app1",
+                    "Publisher": "Publisher 1",
+                    "Main-Photo": "https://example.com/app1.png",
+                    "Description": "Description of App1",
+                    "Icon": "https://example.com/app1-icon.png",
+                    "Source": "https://flathub.org/apps/app1"
+                },
+                "App2": {
+                    "Flatpak name": "App2",
+                    "Install command": "flatpak install flathub app2",
+                    "Run command": "flatpak run app2",
+                    "Publisher": "Publisher 2",
+                    "Main-Photo": "https://example.com/app2.png",
+                    "Description": "Description of App2",
+                    "Icon": "https://example.com/app2-icon.png",
+                    "Source": "https://flathub.org/apps/app2"
+                }
+            }
+        }
+    ];
+
+    // Function to generate Flatpak cards
+    function generateFlatpakCards(data) {
+        const container = document.body;
+
+        data.forEach(entry => {
+            const flatpakData = entry.Flatpak;
+
+            for (const appName in flatpakData) {
+                const appData = flatpakData[appName];
+                const card = document.createElement('div');
+                card.classList.add('flatpak-card');
+
+                card.innerHTML = `
+                    <img src="${appData['Main-Photo']}" alt="${appName} Image">
+                    <h2>${appName}</h2>
+                    <p>${appData.Description}</p>
+                    <p><strong>Publisher:</strong> ${appData.Publisher}</p>
+                    <p>
+                        <strong>Install Command:</strong> ${appData['Install command']}<br>
+                        <strong>Run Command:</strong> ${appData['Run command']}
+                    </p>
+                    <a href="${appData.Source}" target="_blank">View on Flathub</a>
+                `;
+
+                container.appendChild(card);
+            }
+        });
+    }
+
+    // Call the function with your JSON data
+    generateFlatpakCards(jsonData);
+</script>
+
+</body>
+</html>
