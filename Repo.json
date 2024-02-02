@@ -1,0 +1,17 @@
+[
+    {
+        "Name": "HttpAnimations",
+        "Flatpak": {
+            "Grapejuice": {
+                "Flatpak name": "Grapejuice",
+                "Install command": "flatpak install flathub net.brinkervii.grapejuice",
+                "Run command": "flatpak run net.brinkervii.grapejuice",
+                "Publisher": "The Grapejuice Developers",
+                "Main-Photo": "https://dl.flathub.org/repo/screenshots/net.brinkervii.grapejuice-stable/752x423/net.brinkervii.grapejuice-0b3c6430dd02afd545c7ad3784681c5c.png",
+                "Description": "A Launcher for Roblox Player and Roblox Studio | Grapejuice is a launcher for the popular Roblox platform. It enables users to create, play, and socialize on the Roblox platform.",
+                "Icon": "https://dl.flathub.org/repo/appstream/x86_64/icons/128x128/net.brinkervii.grapejuice.png",
+                "Source": "https://flathub.org/apps/net.brinkervii.grapejuice"
+            }
+        }
+    }
+]
