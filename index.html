@@ -20,6 +20,16 @@
             border-radius: 4px;
             margin-bottom: 8px;
         }
+
+        .icon-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .icon-title img {
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
@@ -49,8 +59,10 @@
                 card.classList.add('flatpak-card');
 
                 card.innerHTML = `
-                    <img src="${appData['Main-Photo']}" alt="${appName} Image">
-                    <h2>${appName}</h2>
+                    <div class="icon-title">
+                        <img src="${appData['Icon']}" alt="${appName} Icon">
+                        <h2>${appName}</h2>
+                    </div>
                     <p>${appData.Description}</p>
                     <p><strong>Publisher:</strong> ${appData.Publisher}</p>
                     <p>
