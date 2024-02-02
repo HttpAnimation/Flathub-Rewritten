@@ -30,8 +30,10 @@ async function generateFlatpakCards() {
                 <p>${appData.Description}</p>
                 <p><strong>Publisher:</strong> ${appData.Publisher}</p>
                 <p>
-                    <strong>Install Command:</strong> <br> <code>${appData['Install command']}</code><br>
-                    <strong>Run Command:</strong> <br> <code>${appData['Run command']}</code>
+                    <strong>Install Command:</strong> <br> 
+                    <code class="install-command" onclick="copyToClipboard(this)">${appData['Install command']}</code><br>
+                    <strong>Run Command:</strong> <br> 
+                    <code class="run-command" onclick="copyToClipboard(this)">${appData['Run command']}</code>
                 </p>
                 <a href="${appData.Source}" target="_blank">View on Flathub</a>
             `;
@@ -39,6 +41,17 @@ async function generateFlatpakCards() {
             container.appendChild(card);
         }
     });
+}
+
+function copyToClipboard(element) {
+    const commandText = element.innerText;
+    const textarea = document.createElement('textarea');
+    textarea.value = commandText;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    alert(`${commandText} copied to clipboard!`);
 }
 
 generateFlatpakCards();
