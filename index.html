@@ -8,6 +8,37 @@
         body {
             background-color: #333;
             color: #fff;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrolling when sidebar is visible */
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #222;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            z-index: 1;
+            padding-top: 20px;
+        }
+
+        #content {
+            margin-left: 250px;
+            transition: margin-left 0.3s ease-in-out;
+            padding: 16px;
+        }
+
+        .toggle-btn {
+            cursor: pointer;
+            font-size: 24px;
+            padding: 5px;
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            color: #fff;
         }
 
         .flatpak-card {
@@ -47,51 +78,78 @@
 </head>
 <body>
 
-<script>
-    async function fetchData() {
-        try {
-            const response = await fetch('https://raw.githubusercontent.com/HttpAnimation/Flathub-Rewritten/repo/Repo.json');
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    }
+<div id="sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">F</div>
+</div>
 
-    async function generateFlatpakCards() {
-        const container = document.body;
-
-        const jsonData = await fetchData();
-
-        jsonData.forEach(entry => {
-            const flatpakData = entry.Flatpak;
-
-            for (const appName in flatpakData) {
-                const appData = flatpakData[appName];
-                const card = document.createElement('div');
-                card.classList.add('flatpak-card');
-
-                card.innerHTML = `
-                    <div class="icon-title">
-                        <img src="${appData['Icon']}" alt="${appName} Icon">
-                        <h2>${appName}</h2>
-                    </div>
-                    <img src="${appData['Main-Photo']}" alt="${appName} Image">
-                    <p>${appData.Description}</p>
-                    <p><strong>Publisher:</strong> ${appData.Publisher}</p>
-                    <p>
-                        <strong>Install Command:</strong> <br> <code>${appData['Install command']}</code><br>
-                        <strong>Run Command:</strong> <br> <code>${appData['Run command']}</code>
-                    </p>
-                    <a href="${appData.Source}" target="_blank">View on Flathub</a>
-                `;
-
-                container.appendChild(card);
+<div id="content">
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/HttpAnimation/Flathub-Rewritten/repo/Repo.json');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
-        });
+        }
+
+        async function generateFlatpakCards() {
+            const container = document.getElementById('content');
+
+            const jsonData = await fetchData();
+
+            jsonData.forEach(entry => {
+                const flatpakData = entry.Flatpak;
+
+                for (const appName in flatpakData) {
+                    const appData = flatpakData[appName];
+                    const card = document.createElement('div');
+                    card.classList.add('flatpak-card');
+
+                    card.innerHTML = `
+                        <div class="icon-title">
+                            <img src="${appData['Icon']}" alt="${appName} Icon">
+                            <h2>${appName}</h2>
+                        </div>
+                        <img src="${appData['Main-Photo']}" alt="${appName} Image">
+                        <p>${appData.Description}</p>
+                        <p><strong>Publisher:</strong> ${appData.Publisher}</p>
+                        <p>
+                            <strong>Install Command:</strong> <br> <code>${appData['Install command']}</code><br>
+                            <strong>Run Command:</strong> <br> <code>${appData['Run command']}</code>
+                        </p>
+                        <a href="${appData.Source}" target="_blank">View on Flathub</a>
+                    `;
+
+                    container.appendChild(card);
+                }
+            });
+        }
+
+        generateFlatpakCards();
+    </script>
+</div>
+
+<script>
+    let sidebarVisible = true;
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('content');
+
+        sidebarVisible = !sidebarVisible;
+        const newLeft = sidebarVisible ? 0 : -250;
+
+        sidebar.style.left = `${newLeft}px`;
+        content.style.marginLeft = `${newLeft + 250}px`;
     }
 
-    generateFlatpakCards();
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'f') {
+            toggleSidebar();
+        }
+    });
 </script>
 
 </body>
