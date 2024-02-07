@@ -2,6 +2,16 @@
     {
         "Name": "HttpAnimations",
         "Flatpak": {
+            "MindMate": {
+                "Flatpak name": "MindMate",
+                "Install command": "flatpak install flathub io.github.koromelodev.mindmate",
+                "Run command": "flatpak run io.github.koromelodev.mindmate",
+                "Publisher": "koromelodev",
+                "Main-Photo": "Photo",
+                "Description": "Unofficial application for ChatGPT  The app supports chat settings, can send system messages, delete and edit messages.",
+                "Icon": "https://flathub.org/apps/io.github.koromelodev.mindmate",
+                "Source": "https://flathub.org/apps/io.github.koromelodev.mindmate"
+            },
             "Grapejuice": {
                 "Flatpak name": "Grapejuice",
                 "Install command": "flatpak install flathub net.brinkervii.grapejuice",
