@@ -2,6 +2,16 @@
     {
         "Name": "HttpAnimations",
         "Flatpak": {
+            "Usermode FTP Server": {
+                "Flatpak name": "Usermode FTP Server",
+                "Install command": "flatpak install flathub eu.ithz.umftpd",
+                "Run command": "flatpak run eu.ithz.umftpd",
+                "Publisher": "ithz.eu",
+                "Main-Photo": "https://dl.flathub.org/repo/screenshots/eu.ithz.umftpd-stable/752x423/eu.ithz.umftpd-5321003a0786fe4389fe4b1fb98443b7.png",
+                "Description": "Access your files from another deviceStart an FTP server as user and transfer files directly via most file browsers' builtin FTP support: Windows File Explorer, Thunar, Gnome Files, Dolphin and many more!Features:User-friendly graphical interface.No root nor special permissions required.FTP encryption (FTPS). SFTP support.Single-user authentication.Optional read-only filesystem.Known upstream bugs (full list at documentation page):Gtk4 - Unresponsive UI after touch input. Gtk4 bug #5096Gtk4 - Dropdown menus not working under Steam Deck Gamescope.Flatpak - Directory selection not working under Steam Deck Gamescope.",
+                "Icon": "Access your files from another deviceStart an FTP server as user and transfer files directly via most file browsers' builtin FTP support: Windows File Explorer, Thunar, Gnome Files, Dolphin and many more!Features:User-friendly graphical interface.No root nor special permissions required.FTP encryption (FTPS). SFTP support.Single-user authentication.Optional read-only filesystem.Known upstream bugs (full list at documentation page):Gtk4 - Unresponsive UI after touch input. Gtk4 bug #5096Gtk4 - Dropdown menus not working under Steam Deck Gamescope.Flatpak - Directory selection not working under Steam Deck Gamescope.",
+                "Source": "https://flathub.org/apps/eu.ithz.umftpd"
+            },
             "MindMate": {
                 "Flatpak name": "MindMate",
                 "Install command": "flatpak install flathub io.github.koromelodev.mindmate",
